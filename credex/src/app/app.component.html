@@ -1,0 +1,25 @@
+<p-menubar>
+  <ng-template pTemplate="start">
+    <div class="header">
+      <img src="../assets/logoblack.png"/>
+    </div>
+  </ng-template>
+  <div class="row">
+    <button *ngIf="!connected" pButton (click)="connectWallet()" class="p-button-outlined p-button-sm" label="Connect" icon="pi pi-sign-in" iconPos="right"></button>
+    <div *ngIf="connected" class="p-inputgroup p-textinput-sm">
+      <button (click)="clipboard.copy(address)" class="p-button-text p-button-secondary" style="padding: 0 10px; border: 1px solid var(--surface-c);" pButton icon="pi pi-copy" pTooltip="Copy"></button> 
+      <input type="text" [(ngModel)]="address" pInputText placeholder="Address" [disabled]="true" >
+      <button (click)="disconnect()" class="p-button-text p-button-warning" style="padding: 0 10px; border: 1px solid var(--surface-c);" pButton icon="pi pi-sign-out" pTooltip="Disconnect"></button>  
+    </div>
+  </div>
+</p-menubar>
+
+<div class="container">
+  
+</div>
+
+<div class="content">
+
+</div>
+
+<router-outlet></router-outlet>
