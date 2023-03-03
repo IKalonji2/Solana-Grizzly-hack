@@ -17,3 +17,102 @@
     margin-top: 5px;
     color: var(--primary-color);
 }
+
+.container {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-radius: 3px;
+    gap: 10px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 4px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.purple {
+    box-shadow: 1px 1px 3px var(--purple-500);
+}
+
+.orange {
+    box-shadow: 1px 1px 3px var(--orange-500);
+}
+
+.blue {
+    box-shadow: 1px 1px 3px var(--blue-500);
+}
+
+.purple:hover {
+    box-shadow: 1px 1px 6px var(--purple-500);
+}
+
+.orange:hover {
+    box-shadow: 1px 1px 6px var(--orange-500);
+}
+
+.blue:hover {
+    box-shadow: 1px 1px 6px var(--blue-500);
+}
+
+.purple:active {
+    box-shadow: 1px 1px 1px var(--purple-500);
+}
+
+.orange:active {
+    box-shadow: 1px 1px 1px var(--orange-500);
+}
+
+.blue:active {
+    box-shadow: 1px 1px 1px var(--blue-500);
+}
+
+.card div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card span {
+    font-size: 1rem;
+    font-weight: 700;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.card i {
+    font-size: 1.2rem;
+}
+
+.purple-i {
+    color: var(--purple-500);
+}
+
+.orange-i {
+    color: var(--orange-500);
+}
+
+.blue-i {
+    color: var(--blue-500);
+}
+
+.card p {
+    font-size: x-small;
+    font-weight: 500;
+    font-style: italic;
+    color: gray;
+
+}
+
+@media only screen and (max-width: 700px) {
+    .container {
+        flex-direction: column;
+    }
+}
