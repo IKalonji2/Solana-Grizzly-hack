@@ -1,0 +1,12 @@
+.navbar {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-width: 1px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, var(--surface-b), var(--orange-500), var(--surface-b));
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}

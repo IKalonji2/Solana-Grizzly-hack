@@ -14,6 +14,7 @@ interface Chain {
 })
 export class AppComponent {
   title = 'Credex';
+  year = (new Date()).getFullYear();
 
   address: string = '';
 
@@ -21,13 +22,10 @@ export class AppComponent {
   provider: any;
   
 
-  constructor(private walletService: WalletService, protected clipboard: Clipboard) {
-
-    this.provider = this.walletService.getProvider();
-
-  }
+  constructor(private walletService: WalletService, protected clipboard: Clipboard) { }
 
   connectWallet = async () => {
+    this.provider = this.walletService.getProvider();
     try {
       const response = await this.provider.connect();
       this.address = response.publicKey.toString();

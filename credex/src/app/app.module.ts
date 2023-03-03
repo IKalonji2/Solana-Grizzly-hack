@@ -10,10 +10,18 @@ import {DropdownModule} from 'primeng/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoansComponent } from './pages/loans/loans.component';
+import { MybidsComponent } from './pages/mybids/mybids.component';
+import { PeerbidsComponent } from './pages/peerbids/peerbids.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoansComponent,
+    MybidsComponent,
+    PeerbidsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

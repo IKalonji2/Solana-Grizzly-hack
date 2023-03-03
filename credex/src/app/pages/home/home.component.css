@@ -1,0 +1,19 @@
+.navbar {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-width: 1px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, var(--surface-b), var(--purple-500), var(--orange-500), var(--blue-500), var(--surface-b));
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.header {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 5px;
+    color: var(--primary-color);
+}
