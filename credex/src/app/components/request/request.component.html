@@ -1,0 +1,36 @@
+<div class="request">
+    <div class="image">
+        <img src="../../../assets/default.png" width="155px" height="155px">
+        <div (click)="viewOnExplorer()" class="overlay">
+            <i class="pi pi-eye" style="font-size: xx-large;"></i>
+        </div>
+    </div>
+    
+    <div class="items">
+        <div class="item">
+            <span>Requested</span>
+            <i>{{loan?.amount ?? 0}} Sol</i>
+        </div>
+
+        <div class="item">
+            <span>No. of Bids</span>
+            <i>{{loan?.bids?.length ?? 0}} bids</i>
+        </div>
+
+        <div class="item">
+            <span>NFT Value</span>
+            <i>{{loan?.value ?? 0}} Sol</i>
+        </div>
+
+        <div *ngIf="!hasBids" class="p-inputgroup footer" >
+            <span class="p-inputgroup-addon"><i class="pi pi-percentage"></i></span>
+            <p-inputNumber class="p-inputtext-sm" #rate [max]="100" [min]="0" placeholder="Interest" [style]="{'width':'50px'}"></p-inputNumber>
+            <button pButton class="p-button-success p-button-sm" label="Bid" icon="pi pi-arrow-right" iconPos="right" [disabled]="!rate.value"></button>
+        </div>
+
+        <div *ngIf="hasBids" class="footer" [style]="{'width': '100%'}">
+            <button pButton class="p-button-text p-button-raised p-button-danger p-button-sm" label="Cancel Bid" icon="pi pi-trash" iconPos="right" [style]="{'width': '100%'}"></button>
+        </div>
+    </div>
+
+</div>

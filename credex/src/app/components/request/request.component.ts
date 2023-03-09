@@ -22,7 +22,7 @@ export class RequestComponent {
   }
 
   cancelBid = async () => {
-    this.contractService.cancelBid(this.loan)
+    this.contractService.cancelBid()
   }
 
   hasBid = async () => {

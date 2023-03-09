@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { WalletService } from './services/wallet/wallet.service';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { ContractService } from './services/contract/contract.service';
 
 interface Chain {
   name: string;
@@ -22,10 +23,20 @@ export class AppComponent {
   provider: any;
   
 
-  constructor(private walletService: WalletService, protected clipboard: Clipboard) { }
+  constructor(private walletService: WalletService, 
+    protected clipboard: Clipboard) {
+    }
+
+  ngOnInit() {
+    this.provider = this.walletService.getProvider();
+    console.log(this.provider.isConnected);
+    if(this.provider && this.provider.isConnected) {
+      console.log('conneted')
+      this.connectWallet();
+    }
+  }
 
   connectWallet = async () => {
-    this.provider = this.walletService.getProvider();
     try {
       const response = await this.provider.connect();
       this.address = response.publicKey.toString();

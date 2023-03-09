@@ -19,12 +19,18 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@project-serum/anchor": "^0.26.0",
     "@solana/web3.js": "^1.73.3",
+    "@types/uuid": "^9.0.1",
+    "borsh": "^0.7.0",
+    "buffer": "^6.0.3",
     "font-awesome": "^4.7.0",
     "fontawesome": "^5.6.3",
+    "path": "^0.12.7",
     "primeng": "^15.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "uuid": "^9.0.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {

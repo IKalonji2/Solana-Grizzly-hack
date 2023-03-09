@@ -26,5 +26,69 @@
 
 <div class="navbar">
     <div class="header">Requests</div>
-    <button pButton class="p-button-outlined p-button-info p-button-sm" label="Request" icon="pi pi-send" iconPos="right"></button>
+    <button pButton (click)="display = display ? false : true" class="p-button-text p-button-raised p-button-info p-button-sm" label="Request" icon="pi pi-send" iconPos="right"></button>
 </div>
+
+<div class="content">
+    <div class="no-content" *ngIf="loans.length == 0">
+        No Loan Requests To Display.
+    </div>
+
+    <div class="request" *ngFor="let loan of loans">
+        <app-request></app-request>
+    </div>
+</div>
+
+<div class="paging">
+    <p-paginator [classList]="'p-paginator-sm'" [rows]="10" [totalRecords]="100" [pageLinkSize]="1"></p-paginator>
+</div>
+
+<p-dialog header="Request Loan" header="Request Loan" [draggable]="false" [(visible)]="display" [modal]="true" [breakpoints]="{'960px': '65vw', '440px': '95vw'}" [style]="{width: '40vw'}">
+    <p-steps [model]="items" [(activeIndex)]="step"></p-steps>
+    <div class="step" *ngIf="step == 0">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span> 
+            <p-inputNumber [(ngModel)]="loanRequest.amount" placeholder="Amount (Lamports)" [required]="true"></p-inputNumber>
+        </div>
+
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span> 
+            <input [(ngModel)]="loanRequest.mint" pInputText placeholder="NFT Mint (Address)" [required]="true">
+        </div>
+
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+            <p-calendar [(ngModel)]="loanRequest.dueDate" dateFormat="dd/mm/yy" [style]="{'width': '100%'}" appendTo="body"></p-calendar>
+        </div>
+
+        <div class="buttons">
+            <button pButton (click)="next()" class="p-button-sm p-button-info p-button-text p-button-raised" label="Next" icon="pi pi-forward" iconPos="right"></button>
+        </div>
+    </div>
+
+    <div class="step" *ngIf="step == 1">
+        <div class="label" *ngIf="!loanRequest.verified">Click 'Verify' to check the validity of the NFT.</div>
+        <div class="label" *ngIf="loanRequest.verified">Verification completed.</div>
+        <div class="verify">
+            <button pButton *ngIf="!loanRequest.verified" (click)="verifyNFT()" class="p-button-sm p-button-raised p-button-outlined" label="Verify" icon="pi pi-check-circle" iconPos="right"></button>
+            <button pButton *ngIf="loanRequest.verified" class="p-button-sm p-button-raised p-button-text" label="Verified" icon="pi pi-check-circle" iconPos="right"></button>
+        </div>
+        <div class="status">{{loanRequest.message}}</div>
+
+        <div class="buttons">
+            <button pButton (click)="back()" class="p-button-sm p-button-warning p-button-text p-button-raised" label="Prev" icon="pi pi-backward"></button>
+            <button pButton (click)="next()" class="p-button-sm p-button-info p-button-text p-button-raised" label="Next" icon="pi pi-forward" iconPos="right" [disabled]="!loanRequest.verified"></button>
+        </div>
+    </div>
+
+    <div class="step" *ngIf="step == 2">
+        <div class="label">Confirmation</div>
+        <div class="confirm">
+            By clicking 'Confirm', you accept to have your NFT to withheld till your loan is completed. In case of a default your NFT will be used as a collateral to repay your loan.
+        </div>
+        <div class="buttons">
+            <button pButton (click)="back()" class="p-button-sm p-button-warning p-button-text p-button-raised" label="Prev" icon="pi pi-backward"></button>
+            <button pButton (click)="requestLoan()" class="p-button-sm p-button-text p-button-raised" label="Confirm" icon="pi pi-send" iconPos="right"></button>
+        </div>
+    </div>
+</p-dialog>

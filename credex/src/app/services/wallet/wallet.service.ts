@@ -14,6 +14,14 @@ export class WalletService {
         return provider;
       }
     }
-    window.open('https://phantom.app/', '_blank');
+    //window.open('https://phantom.app/', '_blank');
   };
+
+  getPublicKey = async () => {
+    let provider = this.getProvider();
+    if(provider) {
+      const reponse = await provider.connect();
+      return reponse.publicKey.toString();
+    }
+  }
 }

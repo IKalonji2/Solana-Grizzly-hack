@@ -1,4 +1,32 @@
 <div class="navbar">
-    <button pButton (click)="previousPage()" class="p-button-text p-button-secondary p-button-sm" label="Back" icon="pi pi-arrow-left"></button>
-    <button pButton class="p-button-text p-button-sm" label="Peers' Bids" icon="pi pi-percentage" iconPos="right"></button>
+    <button pButton (click)="previousPage()" class="p-button-text p-button-raised p-button-secondary p-button-sm" label="Back" icon="pi pi-arrow-left"></button>
+    <div class="blue">
+        <button pButton class="p-button-text p-button-raised p-button-sm" label="Peers' Bids" icon="pi pi-arrow-down-left" iconPos="right"></button>
+    </div>
 </div>
+
+<p-tabView>
+    <p-tabPanel>
+        <ng-template pTemplate="header">
+            <div class="tabviewheader">Accepted</div>
+        </ng-template>
+
+        <ng-template pTemplate="content">
+            <div class="no-content">
+                No Bids To Display.
+            </div>
+        </ng-template>
+    </p-tabPanel>
+
+    <p-tabPanel>
+        <ng-template pTemplate="header">
+            <div class="tabviewheader">Pending</div>
+        </ng-template>
+
+        <ng-template pTemplate="content">
+            <div class="no-content">
+                No Bids To Display.
+            </div>
+        </ng-template>
+    </p-tabPanel>
+</p-tabView>

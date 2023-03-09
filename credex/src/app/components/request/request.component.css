@@ -1,0 +1,65 @@
+.request {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 4px 0 var(--primary-color);
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.image img {
+    border-radius: 5px;
+}
+
+.image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 65px;
+    width: 155px;
+    height: 155px;
+    background-color: black;
+    opacity: 0.8;
+    color: var(--blue-500);
+    z-index: 999999;
+    display: none;
+    border-radius: 5px;
+}
+
+.image:hover .overlay {
+    display: block;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+    width: 100%;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.item span, .item i {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.footer {
+    position: absolute;
+    bottom: 2px;
+}

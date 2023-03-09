@@ -5,7 +5,7 @@
     </div>
   </ng-template>
   <div class="row">
-    <button *ngIf="!connected" pButton (click)="connectWallet()" class="p-button-outlined p-button-sm" label="Connect" icon="pi pi-sign-in" iconPos="right"></button>
+    <button *ngIf="!connected" pButton (click)="connectWallet()" class="p-button-text p-button-raised p-button-sm" label="Connect" icon="pi pi-sign-in" iconPos="right"></button>
     <div *ngIf="connected" class="p-inputgroup p-textinput-sm">
       <button (click)="clipboard.copy(address)" class="p-button-text p-button-secondary" style="padding: 0 10px; border: 1px solid var(--surface-c);" pButton icon="pi pi-copy" pTooltip="Copy"></button> 
       <input type="text" [(ngModel)]="address" pInputText placeholder="Address" [disabled]="true" >
